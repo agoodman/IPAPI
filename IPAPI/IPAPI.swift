@@ -14,11 +14,11 @@ import RxSwift
 import RxCocoa
 
 
-class IPAPI {
+public class IPAPI {
 
   private static let endpointUrl = "http://ip-api.com/json"
   
-  class func location(session: NSURLSession) -> Observable<IPGeoData?> {
+  public class func location(session: NSURLSession) -> Observable<IPGeoData?> {
     let url = NSURL(string: endpointUrl)!
     return session
       .rx_JSON(url)

@@ -9,19 +9,19 @@
 import Foundation
 
 public class IPGeoData {
-  let status : String?
-  let country : String?
-  let countryCode : String?
-  let region : String?
-  let regionName : String?
-  let city : String?
-  let zipCode : String?
-  let lat : Double
-  let lng : Double
-  let timeZone : String?
-  let ispName : String?
-  let orgName : String?
-  let ipAddress : String?
+  public let status : String?
+  public let country : String?
+  public let countryCode : String?
+  public let region : String?
+  public let regionName : String?
+  public let city : String?
+  public let zipCode : String?
+  public let lat : Double
+  public let lng : Double
+  public let timeZone : String?
+  public let ispName : String?
+  public let orgName : String?
+  public let ipAddress : String?
   
   init(status: String?,
        country : String?,
