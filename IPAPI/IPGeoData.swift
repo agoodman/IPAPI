@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct IPGeoData {
+public class IPGeoData {
   let status : String?
   let country : String?
   let countryCode : String?
