@@ -10,6 +10,7 @@
 		7ED954FD1D9D79B600934FAA /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED954FA1D9D79B600934FAA /* RxBlocking.framework */; };
 		7ED954FE1D9D79B600934FAA /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED954FB1D9D79B600934FAA /* RxCocoa.framework */; };
 		7ED954FF1D9D79B600934FAA /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED954FC1D9D79B600934FAA /* RxSwift.framework */; };
+		7ED955041D9D962300934FAA /* IPGeoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED955031D9D962300934FAA /* IPGeoData.swift */; };
 		7EF4B30F1D9C51D200E50956 /* IPAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF4B30E1D9C51D200E50956 /* IPAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EF4B3171D9C521F00E50956 /* IPAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4B3161D9C521F00E50956 /* IPAPI.swift */; };
 /* End PBXBuildFile section */
@@ -18,6 +19,7 @@
 		7ED954FA1D9D79B600934FAA /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		7ED954FB1D9D79B600934FAA /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		7ED954FC1D9D79B600934FAA /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		7ED955031D9D962300934FAA /* IPGeoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPGeoData.swift; sourceTree = "<group>"; };
 		7EF4B30B1D9C51D200E50956 /* IPAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IPAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF4B30E1D9C51D200E50956 /* IPAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPAPI.h; sourceTree = "<group>"; };
 		7EF4B3101D9C51D200E50956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				7EF4B3161D9C521F00E50956 /* IPAPI.swift */,
 				7EF4B30E1D9C51D200E50956 /* IPAPI.h */,
 				7EF4B3101D9C51D200E50956 /* Info.plist */,
+				7ED955031D9D962300934FAA /* IPGeoData.swift */,
 			);
 			path = IPAPI;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ED955041D9D962300934FAA /* IPGeoData.swift in Sources */,
 				7EF4B3171D9C521F00E50956 /* IPAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
