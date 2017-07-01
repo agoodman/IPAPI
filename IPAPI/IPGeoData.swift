@@ -8,20 +8,20 @@
 
 import Foundation
 
-public class IPGeoData {
-  public let status : String?
-  public let country : String?
-  public let countryCode : String?
-  public let region : String?
-  public let regionName : String?
-  public let city : String?
-  public let zipCode : String?
-  public let lat : Double
-  public let lng : Double
-  public let timeZone : String?
-  public let ispName : String?
-  public let orgName : String?
-  public let ipAddress : String?
+open class IPGeoData {
+  open let status : String?
+  open let country : String?
+  open let countryCode : String?
+  open let region : String?
+  open let regionName : String?
+  open let city : String?
+  open let zipCode : String?
+  open let lat : Double
+  open let lng : Double
+  open let timeZone : String?
+  open let ispName : String?
+  open let orgName : String?
+  open let ipAddress : String?
   
   init(status: String?,
        country : String?,

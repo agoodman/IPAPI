@@ -14,48 +14,49 @@ import RxSwift
 import RxCocoa
 
 
-public class IPAPI {
+open class IPAPI {
 
-  private static let endpointUrl = "http://ip-api.com/json"
+  fileprivate static let endpointUrl = "http://ip-api.com/json"
   
-  public class func location(session: NSURLSession) -> Observable<IPGeoData?> {
-    let url = NSURL(string: endpointUrl)!
-    return session
-      .rx_JSON(url)
+  open class func location(_ session: URLSession) -> Observable<IPGeoData?> {
+    let url = URL(string: endpointUrl)!
+    return session.rx
+      .json(url: url)
       .observeOn(MainScheduler.asyncInstance)
       .map { (data) -> IPGeoData? in
 
         // rx_JSON returns AnyObject, but it's actually a NSDictionary
-        let rawJson = data as! NSDictionary
-        
-        let statusString = rawJson["status"]
+        guard let rawJson: Dictionary<String,Any> = data as? Dictionary else { return nil }
+
+        // graceful guard against bad cast
+        guard let statusString: String = rawJson["status"] as? String else { return nil }
 
         // we are not propagating the error message, just returning nil on fail
-        if let lowercaseStatus = statusString?.lowercaseString {
-          if lowercaseStatus == "success" {
-            let geoData = extractGeoData(rawJson)
-            return geoData
-          }
+        let lowercaseStatus = statusString.lowercased()
+        if lowercaseStatus == "success" {
+          return extractGeoData(rawJson)
         }
         
         return nil
       }
   }
   
-  private class func extractGeoData(jsonData: NSDictionary) -> IPGeoData {
-    let status = jsonData["status"] as! String?
-    let country = jsonData["country"] as! String?
-    let countryCode = jsonData["countryCode"] as! String?
-    let region = jsonData["region"] as! String?
-    let regionName = jsonData["regionName"] as! String?
-    let city = jsonData["city"] as! String?
-    let zipCode = jsonData["zip"] as! String?
-    let lat = jsonData["lat"] as! NSNumber
-    let lng = jsonData["lon"] as! NSNumber
-    let timeZone = jsonData["timeZone"] as! String?
-    let ispName = jsonData["isp"] as! String?
-    let orgName = jsonData["org"] as! String?
-    let ipAddress = jsonData["query"] as! String?
+  fileprivate class func extractGeoData(_ jsonData: Dictionary<String,Any>) -> IPGeoData? {
+    guard
+      let status = jsonData["status"] as? String,
+      let country = jsonData["country"] as? String,
+      let countryCode = jsonData["countryCode"] as? String,
+      let region = jsonData["region"] as? String,
+      let regionName = jsonData["regionName"] as? String,
+      let city = jsonData["city"] as? String,
+      let zipCode = jsonData["zip"] as? String,
+      let lat = jsonData["lat"] as? NSNumber,
+      let lng = jsonData["lon"] as? NSNumber,
+      let timeZone = jsonData["timeZone"] as? String,
+      let ispName = jsonData["isp"] as? String,
+      let orgName = jsonData["org"] as? String,
+      let ipAddress = jsonData["query"] as? String
+      else { return nil }
     
     return IPGeoData(status: status,
                      country: country,
