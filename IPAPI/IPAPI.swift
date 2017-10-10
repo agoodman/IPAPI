@@ -19,7 +19,10 @@ open class IPAPI {
   fileprivate static let endpointUrl = "http://ip-api.com/json"
   
   open class func location(_ session: URLSession) -> Observable<IPGeoData?> {
-    let url = URL(string: endpointUrl)!
+    guard let url: URL = URL(string: endpointUrl) else {
+        return Observable<IPGeoData?>.just(nil)
+    }
+
     return session.rx
       .json(url: url)
       .observeOn(MainScheduler.asyncInstance)
