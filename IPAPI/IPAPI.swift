@@ -43,20 +43,23 @@ open class IPAPI {
   
   fileprivate class func extractGeoData(_ jsonData: Dictionary<String,Any>) -> IPGeoData? {
     guard
-      let status = jsonData["status"] as? String,
-      let country = jsonData["country"] as? String,
-      let countryCode = jsonData["countryCode"] as? String,
-      let region = jsonData["region"] as? String,
-      let regionName = jsonData["regionName"] as? String,
-      let city = jsonData["city"] as? String,
-      let zipCode = jsonData["zip"] as? String,
-      let lat = jsonData["lat"] as? NSNumber,
-      let lng = jsonData["lon"] as? NSNumber,
-      let timeZone = jsonData["timeZone"] as? String,
-      let ispName = jsonData["isp"] as? String,
-      let orgName = jsonData["org"] as? String,
-      let ipAddress = jsonData["query"] as? String
-      else { return nil }
+        let lat = jsonData["lat"] as? NSNumber,
+        let lng = jsonData["lon"] as? NSNumber
+    else {
+        return nil
+    }
+    
+    let status = jsonData["status"] as? String
+    let country = jsonData["country"] as? String
+    let countryCode = jsonData["countryCode"] as? String
+    let region = jsonData["region"] as? String
+    let regionName = jsonData["regionName"] as? String
+    let city = jsonData["city"] as? String
+    let zipCode = jsonData["zip"] as? String
+    let timeZone = jsonData["timeZone"] as? String
+    let ispName = jsonData["isp"] as? String
+    let orgName = jsonData["org"] as? String
+    let ipAddress = jsonData["query"] as? String
     
     return IPGeoData(status: status,
                      country: country,
